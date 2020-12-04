@@ -50,8 +50,9 @@
             <td><?php  $lt=$row['qty']*$row['price']; 
                         echo $lt;  
                         $total+=$lt; ?></td>
-            <td><form action="delete_cart.php" method="POST">
-                  <input type="hidden" value=<?php echo $row['custid'] ?> name="custid" />
+            <td><form action="delete_from_cart.php" method="POST">
+                  <input type="hidden" value= <?php echo $row['custid'] ?> name="custid" />
+                  <input type="hidden" value= <?php echo $row['menuid'] ?> name="menuid" />
                   <input type="submit" name="submit" value="Remove" class="btn btn-danger"/>
                 </form>
             </td>

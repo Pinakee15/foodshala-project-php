@@ -22,6 +22,7 @@
   <body>
 
     <?php echo "welcome  to the restaurant section."; ?>
+    <?php include './partials/_nav.php' ?>
     <br><br><br>
 
     <div class="container">
