@@ -24,7 +24,12 @@
                 $_SESSION['restaurantloggedin'] = true;
                 $_SESSION['restaurantname'] = $row['name'] ;
                 $_SESSION['restaurantid'] = $row['rest_id'];
+
+                if(isset($_SESSION['loggedin'])){
+                    unset($_SESSION['loggedin']);
+                }
                 header("location: restaurant_section.php");
+                exit;
             }
           else{
           $showError = "Invalid credentials";

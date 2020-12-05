@@ -17,6 +17,14 @@
         $description = $_POST['description'];
         $type = isset($_POST['non-veg'])?"non-veg":"veg";
         $price = $_POST['price'];
+        $timestamp = htmlspecialchars(date("d-m-y-h-i-s-ms"));
+        
+        // file upload
+        if(isset($_FILES['itemimage'])){
+            $file_name = $_FILES['itemimage']['name'];
+            $file_tmp = $_FILES['itemimage']['tmp_name'];
+            move_uploaded_file($file_tmp , "uploadedfiles/".$timestamp.".png");
+        }
 
         echo $username , $password;
         $exists  = false ;
@@ -28,8 +36,8 @@
         }
         else {
             echo "entered";
-            $sql_query = "INSERT INTO `menu_item` (`menu_id`, `restaurant_id`, `name`, `price`, `type`, `description`) 
-            VALUES (NULL, '$restaurant_id', '$name', '$price', '$type', '$description');" ;
+            $sql_query = "INSERT INTO `menu_item` (`menu_id`, `restaurant_id`, `name`, `price`, `type`, `description` , `timestamp`) 
+            VALUES (NULL, '$restaurant_id', '$name', '$price', '$type', '$description' , '$timestamp');" ;
             $result = mysqli_query($conn , $sql_query); 
             echo "this is the result".$result ;
             if($result)  {
@@ -81,7 +89,7 @@
 
     <div class="container">
         <h1 class="text-center">Add the item to your catalogue</h1>
-        <form action="/food/add_menu_item.php" method="post">
+        <form action="/food/add_menu_item.php" method="post" enctype="multipart/form-data" >
             <div class="form-group col-md-6" >
                 <label for="name">Item Name</label>
                 <input type="text"  maxlength = '40' class="form-control" id="exampleInputEmail1" name='name' aria-describedby="emailHelp">
@@ -108,11 +116,16 @@
                 <label for="description">Description</label>
                 <input type="text" class="form-control" id="exampleInputPassword1" name = 'description'>
             </div>
+            <div class="form-group col-md-6">
+                 <label for="itemimage">Upload item image</label>
+                 <input style="padding:3px;" required name="itemimage"  type="file" class="form-control" id="inputPassword4" >
+            </div>
             <button type="submit" class="btn btn-primary col-md-6">Add Item</button>
         </form>
+         <br>
         <br>
         <br>
-        <br>
+        <a href="/food/restaurant_section.php"><button type="submit" class="btn btn-primary col-md-3">Back to catalogue</button></a>
     </div>
 
 

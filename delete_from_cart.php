@@ -19,13 +19,16 @@
        
             if($conn->query($sql))
             {
-                header('location:delete_from_cart.php');
+                header('location:mycart.php');
             }
             else
                 {
                     echo "There is some error ..";
                 }
             }
+    }
+    else{
+        header('location: customer_dashboard.php');
     }
 
 ?>

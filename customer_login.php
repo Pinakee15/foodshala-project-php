@@ -26,7 +26,13 @@
                 $_SESSION['username'] = $row['name'] ;
                 $_SESSION['custid'] = $row['cust_id'];
                 $_SESSION['foodtype'] = $row['foodtype'];
+
+                if(isset($_SESSION['restaurantloggedin'])){
+                    unset($_SESSION['restaurantloggedin']);
+                }
+                
                 header("location: customer_dashboard.php");
+                exit ;
             }
           else{
           $showError = "Invalid credentials";

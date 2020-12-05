@@ -7,6 +7,13 @@
   else{
     $loggedin = false;
   }
+  
+  if(isset($_SESSION['restaurantloggedin']) && $_SESSION['restaurantloggedin'] == true){
+    $restaurantloggedin = true ;
+  }
+  else{
+    $restaurantloggedin = false;
+  }
 
   echo '
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -16,11 +23,13 @@
   </button>
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav mr-auto">
-        <li class="nav-item active">
-          <a class="nav-link" href="/food/index.php"> Home <span class="sr-only">(current)</span></a>
+      <ul class="navbar-nav mr-auto">';
+      if(!$loggedin){
+        echo '<li class="nav-item active">
+        <a class="nav-link" href="/food/menu.php">Menu<span class="sr-only">(current)</span></a>
         </li>';
-    if(!$loggedin){
+      }
+    if(!$loggedin && !$restaurantloggedin){
       echo '<li class="nav-item">
               <a class="nav-link" href="/food/login.php">Login</a>
             </li>
@@ -28,15 +37,20 @@
               <a class="nav-link" href="/loginsys/signup.php">Sign up</a>
             </li>';
     }
-    if($loggedin){
+    if($loggedin || $restaurantloggedin){
       echo '
           <li class="nav-item">
               <a class="nav-link" href="/food/logout.php">Log out</a>
           </li>
-          <li class="nav-item">
-              <a class="nav-link" href="/food/mycart.php">My Cart</a>
-          </li>
       ' ;
+    }
+
+    if($loggedin){
+      echo '
+          <li class="nav-item">
+            <a class="nav-link" href="/food/mycart.php">My Cart</a>
+          </li>
+      ';
     }
 
     echo  '</ul>

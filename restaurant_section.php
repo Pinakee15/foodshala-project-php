@@ -36,11 +36,14 @@
  
             $restid=$_SESSION['restaurantid'];
             //$sql="SELECT * FROM menu_item m,restaurant r where m.restaurant_id = r.rest_id and r.rest_id = '$restid'";
-            $sql="SELECT m.name, m.description, m.price , m.menu_id FROM menu_item m,restaurant r where m.restaurant_id = r.rest_id and r.rest_id = '$restid'";
+            $sql="SELECT m.name, m.description, m.price , m.menu_id , m.timestamp FROM menu_item m,restaurant r where m.restaurant_id = r.rest_id and r.rest_id = '$restid'";
             $result=$conn->query($sql);
             
             while($row = $result->fetch_assoc()){ ?>
              <div>
+                <div class="foodimg">
+                  <img height="250px" width="250px" src=<?php echo "\"uploadedfiles/".$row['timestamp'].".PNG\""; ?> />
+                </div>
                 <div>Name : <?php echo $row['name'] ?></div>
                 <div>Description: <?php echo $row['description'] ?></div>
                 <div>Price : <?php echo $row['price'] ?></div>
