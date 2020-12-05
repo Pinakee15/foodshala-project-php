@@ -52,11 +52,11 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
-
+    <link rel="stylesheet" href="assets/CSS/login-logout.css">
     <title>Login</title>
   </head>
   <body>
-    <?php include './partials/_nav.php' ?>
+
     <?php 
      if($login){
         echo '
@@ -80,13 +80,33 @@
      }
     ?>
 
-    <div class="container">
-        <h1 class="text-center">Login to your Restaurant</h1>
+    <div>
+
+        <div class="login-box">
+            <h1 class="text-center">Restaurant sign in</h1>
+                <form action="/food/restaurant_login.php" method="post">
+                    <div class="textbox">
+                        <!-- <i class="fas fa-user"></i> -->
+                        <input type="email" maxlength = '40' name='email' placeholder = 'Email' >
+                    </div>
+                    <div class="textbox">
+                        <!-- <i class="fas fa-lock"></i> -->
+                        <input type="password"  name = 'password' placeholder = 'Password'>
+                    </div>
+                    <button type="submit" class="sub-btn">Login</button>
+                </form>
+            <br><br>
+            <h5>Do not have your Restaurant registered? <a href="/food/restaurant_signup.php">Sign up</a> today!</h5>
+        </div>
+
+
+
+        <!-- <h1 class="text-center">Login to your Restaurant</h1>
         <form action="/food/restaurant_login.php" method="post">
             <div class="form-group col-md-6" >
                 <label for="email">Restaurant Email</label>
                 <input type="email" maxlength = '20' class="form-control" id="exampleInputEmail1" name='email' aria-describedby="emailHelp">
-                <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
+               
             </div>
             <div class="form-group col-md-6">
                 <label for="password">Password</label>
@@ -95,7 +115,7 @@
             <button type="submit" class="btn btn-primary col-md-6">Login</button>
         </form> <br><br>
         <h5>Do not have your Restaurant registered? <a href="/food/restaurant_signup.php">Sign up</a> today!</h5>
-    </div>
+    </div> -->
 
 
     <!-- Optional JavaScript; choose one of the two! -->

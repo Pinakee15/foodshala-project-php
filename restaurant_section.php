@@ -20,8 +20,6 @@
     <title>Welcome <?php echo $_SESSION['restaurantname'] ?></title>
   </head>
   <body>
-
-    <?php echo "welcome  to the restaurant section."; ?>
     <?php include './partials/_nav.php' ?>
     <br><br><br>
 

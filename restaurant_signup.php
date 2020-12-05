@@ -47,11 +47,10 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
-
+    <link rel="stylesheet" href="assets/CSS/login-logout.css">
     <title>Hello, world!</title>
   </head>
   <body>
-    <?php include './partials/_nav.php' ?>
     <?php 
      if($showAlert){
         echo '
@@ -75,33 +74,28 @@
      }
     ?>
 
-    <div class="container">
-        <h1 class="text-center">Signup as Restaurant</h1>
+    <div class="login-box">
+        <h1 class="text-center">Sign Up as Restaurant</h1>
         <form action="/food/restaurant_signup.php" method="post">
-            <div class="form-group col-md-6" >
-                <label for="restaurantname">Restaurant Name</label>
-                <input type="text"  maxlength = '40' class="form-control" id="exampleInputEmail1" name='restaurantname' aria-describedby="emailHelp">
+            <div class="textbox">
+                <input type="text"  maxlength = '40' name='restaurantname' aria-describedby="emailHelp" placeholder = "Restaurant Name">
             </div>
 
-            <div class="form-group col-md-6" >
-                <label for="restaurantemail">Restaurant Email</label>
-                <input type="email"  maxlength = '40' class="form-control" name='restaurantemail' aria-describedby="restaurantemail">
-                <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+            <div class="textbox">
+                <input type="email"  maxlength = '40' name='restaurantemail' placeholder = "Email">
             </div>
-            <div class="form-group col-md-6" >
-                <label for="city">City</label>
-                <input type="text"  maxlength = '40' class="form-control" id="exampleInputEmail1" name='city' aria-describedby="emailHelp">
+            <div class="textbox">
+                <input type="text"  maxlength = '40'  name='city' placeholder = "City">
             </div>
-            <div class="form-group col-md-6">
-                <label for="password">Password</label>
-                <input type="password" class="form-control" id="exampleInputPassword1" name = 'password'>
+            <div class="textbox">
+                <input type="password" name = 'password' placeholder = "Password">
             </div>
-            <div class="form-group col-md-6">
-                <label for="cpassword">Re-enter Password</label>
-                <input type="password" class="form-control" id="exampleInputPassword1" name="cpassword">
+            <div class="textbox">                
+                <input type="password" name="cpassword" placeholder = "Re-enter Password">
             </div>
-            <button type="submit" class="btn btn-primary col-md-6">Sign Up</button>
+            <button type="submit" class="sub-btn">Sign Up</button>
         </form>
+        <h5>Already have a Restaurant registered? <a href="/food/restaurant_login.php">Log in</a></h5>
     </div>
 
 

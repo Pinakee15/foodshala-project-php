@@ -54,12 +54,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
-
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">  -->
+    <link rel="stylesheet" href="assets/CSS/login-logout.css">
     <title>Login</title>
   </head>
-  <body>
-    <?php include './partials/_nav.php' ?>
+  <body >
     <?php 
      if($login){
         echo '
@@ -83,9 +82,26 @@
      }
     ?>
 
-    <div class="container">
-        <h1 class="text-center">Customer sign in</h1>
-        <form action="/food/customer_login.php" method="post">
+    <div>
+        <div class="login-box">
+            <h1 class="text-center">Customer sign in</h1>
+                <form action="/food/customer_login.php" method="post">
+                    <div class="textbox">
+                        <!-- <i class="fas fa-user"></i> -->
+                        <input type="email" maxlength = '40' placeholder="Email" name='email'>
+                    </div>
+                    <div class="textbox">
+                        <!-- <i class="fas fa-lock"></i> -->
+                        <input type="password"  name = 'password' placeholder="Password">
+                    </div>
+                    <button type="submit" class="sub-btn">Login</button>
+                </form>
+            <br><br>
+            <h5>Don't have an account , <a href="/food/customer_signup.php">sign up</a> here.</h5>
+        </div>
+
+
+        <!-- <form action="/food/customer_login.php" method="post">
             <div class="form-group col-md-6" >
                 <label for="email">Email</label>
                 <input type="email" maxlength = '40' class="form-control" id="exampleInputEmail1" name='email' aria-describedby="emailHelp">
@@ -99,7 +115,7 @@
         </form>
         <br><br>
         <h5>Don't have an account , <a href="/food/customer_signup.php">sign up</a> here.</h5>
-    </div>
+    </div> -->
 
 
     <!-- Optional JavaScript; choose one of the two! -->

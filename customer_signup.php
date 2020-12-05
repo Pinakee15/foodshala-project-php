@@ -47,11 +47,10 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
-
+    <link rel="stylesheet" href="assets/CSS/login-logout.css">
     <title>Hello, world!</title>
   </head>
   <body>
-    <?php include './partials/_nav.php' ?>
     <?php 
      if($showAlert){
         echo '
@@ -75,45 +74,39 @@
      }
     ?>
 
-    <div class="container">
+    <div class="login-box" style = "padding:10px;">
         <h1 class="text-center">Signup as customer</h1>
         <form action="/food/customer_signup.php" method="post">
-            <div class="form-group col-md-6" >
-                <label for="username">Username</label>
-                <input type="text"  maxlength = '20' class="form-control" id="exampleInputEmail1" name='username' aria-describedby="emailHelp">
+            <div class="textbox">
+                <input type="text"  maxlength = '20'  name='username' placeholder = "Name">
             </div>
-            <br>
-            
-            <h6>Food type:</h6>
-               <div class="form-group col-md-3">
+            <div>
+               <div  style = "width: 50%; float: left;  padding-left : 8px">
                   <label for="veg">Veg</label>
-                  <input  name="veg"  type="checkbox" class="form-control" >
+                  <input  name="veg"  type="checkbox" value = "Veg">
                 </div>
-                <div class="form-group col-md-3">
+                <div  style = "width: 50%; float: left; padding-left : 5px">
                   <label for="non-veg">Non-Veg</label>
-                  <input  name="non-veg"  type="checkbox" class="form-control">
+                  <input  name="non-veg"  type="checkbox">
                 </div>
+            </div>
 
-            <br>
-            <div class="form-group col-md-6" >
-                <label for="email">Email</label>
-                <input type="email"  maxlength = '40' class="form-control" name='email' aria-describedby="emailHelp">
-                <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+            <div class="textbox">
+                <input type="email"  maxlength = '40' required name='email' placeholder = "Email">
             </div>
-            <div class="form-group col-md-6">
-                <label for="password">Password</label>
-                <input type="password" class="form-control" id="exampleInputPassword1" name = 'password'>
+            <div class="textbox">
+                <input type="password"  name = 'password' placeholder = "Password">
             </div>
-            <div class="form-group col-md-6">
-                <label for="cpassword">Re-enter Password</label>
-                <input type="password" class="form-control" id="exampleInputPassword1" name="cpassword">
+            <div class="textbox">
+                <input type="password" name="cpassword" placeholder = "Re-enter Password">
             </div>
-            <button type="submit" class="btn btn-primary col-md-6">Sign Up</button>
+            <button type="submit" class="sub-btn">Sign Up</button>
         </form>
         <br>
-        <br>
-        <br>
+        <h5>Already registered? <a href="/food/customer_login.php">Log in</a> today!</h5>
     </div>
+     <!-- ////////////////////////////////// our code ////////////////////////////////////////////  <i class="fas fa-user"></i> -->
+
 
 
     <!-- Optional JavaScript; choose one of the two! -->
